@@ -1,0 +1,110 @@
+[gd_scene load_steps=15 format=3 uid="uid://k6lfsnuruslq"]
+
+[ext_resource type="Script" path="res://scripts/main_menu_app.gd" id="1_l48jg"]
+[ext_resource type="Texture2D" uid="uid://cshtckmxgbq27" path="res://assets/start_clean.png" id="1_qcnev"]
+[ext_resource type="Texture2D" uid="uid://ieob873bi5ps" path="res://assets/buttons_types/button_exit_default.png" id="4_4hgrg"]
+[ext_resource type="Texture2D" uid="uid://bwr1xi7mem1bd" path="res://assets/buttons_types/button_exit_hover.png" id="5_b24fq"]
+[ext_resource type="FontFile" uid="uid://dpef3ba54fmdg" path="res://assets/fonts/HarryPotterKudosEN-en.otf" id="6_jg6xx"]
+[ext_resource type="Texture2D" uid="uid://iwb8brhni401" path="res://assets/buttons_types/button_exit_pressed.png" id="7_6eb6f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bs6e5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ln6xj"]
+texture = ExtResource("5_b24fq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e0taq"]
+texture = ExtResource("7_6eb6f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6nvwi"]
+texture = ExtResource("4_4hgrg")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mub0h"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yx25j"]
+texture = ExtResource("5_b24fq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_85mh7"]
+texture = ExtResource("7_6eb6f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7g3en"]
+texture = ExtResource("4_4hgrg")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l48jg")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MenuBackground" type="TextureRect" parent="CanvasLayer"]
+texture = ExtResource("1_qcnev")
+
+[node name="StartButton" type="Button" parent="CanvasLayer/MenuBackground"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 544.0
+offset_right = 440.0
+offset_bottom = 604.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bs6e5")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ln6xj")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e0taq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_6nvwi")
+
+[node name="Label" type="Label" parent="CanvasLayer/MenuBackground/StartButton"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 265.0
+offset_bottom = 63.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0.423529, 0.160784, 1)
+theme_override_fonts/font = ExtResource("6_jg6xx")
+theme_override_font_sizes/font_size = 36
+text = "START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/MenuBackground"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 631.0
+offset_right = 440.0
+offset_bottom = 691.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mub0h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_yx25j")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_85mh7")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7g3en")
+
+[node name="Label" type="Label" parent="CanvasLayer/MenuBackground/ExitButton"]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 12.0
+offset_right = 265.0
+offset_bottom = 61.0
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0.423529, 0.160784, 1)
+theme_override_fonts/font = ExtResource("6_jg6xx")
+theme_override_font_sizes/font_size = 36
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HighScore" type="Label" parent="CanvasLayer/MenuBackground"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 431.0
+offset_right = 592.0
+offset_bottom = 488.0
+theme_override_colors/font_color = Color(0, 0.423529, 0.160784, 1)
+theme_override_fonts/font = ExtResource("6_jg6xx")
+theme_override_font_sizes/font_size = 66
+text = "HIGHSCORE: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/MenuBackground/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuBackground/ExitButton" to="." method="_on_exit_button_pressed"]

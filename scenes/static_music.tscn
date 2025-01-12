@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://8ijj8e4xsr8k"]
+
+[ext_resource type="AudioStream" uid="uid://ckgbao513i1mf" path="res://assets/music/unt.mp3" id="1_do6oh"]
+[ext_resource type="Script" path="res://scripts/static_music.gd" id="2_8h4ex"]
+
+[node name="StaticMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_do6oh")
+volume_db = -1.5
+autoplay = true
+parameters/looping = true
+script = ExtResource("2_8h4ex")

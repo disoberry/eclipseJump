@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://daaffshjf1nsa"]
+
+[ext_resource type="Script" path="res://scripts/jump_boost_duration.gd" id="1_ftjkf"]
+
+[node name="JumpBoostDuration" type="Timer"]
+wait_time = 3.0
+autostart = true
+script = ExtResource("1_ftjkf")
+
+[connection signal="timeout" from="." to="." method="_on_timeout"]
